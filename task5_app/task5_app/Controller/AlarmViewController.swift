@@ -115,10 +115,6 @@ final class AlarmViewController: UIViewController {
 extension AlarmViewController{
     @objc func setButtonTapped(){
         alarmManager.getSelectedTimeFromPicker(pickerView: timePicker)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + SoundManager.shared.selectedTime , execute: {
-//            SoundManager.shared.playAlarmSound()
-//            self.stopButton.isHidden = false
-//        })
     }
     @objc func stopButtonTapped (){
         SoundManager.shared.stopAlarmSound()
