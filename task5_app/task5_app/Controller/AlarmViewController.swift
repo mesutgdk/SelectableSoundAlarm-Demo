@@ -50,9 +50,9 @@ final class AlarmViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = .plain()
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
-        button.backgroundColor = appColor
-        button.tintColor = .systemBackground
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .systemFill
+        button.tintColor = .systemIndigo
         button.setTitle("Sound", for: [])
         button.addTarget(self, action: #selector(soundButtonTapped), for: .primaryActionTriggered)
         
@@ -64,6 +64,7 @@ final class AlarmViewController: UIViewController {
         
         setup()
         layout()
+        
         
     }
     
@@ -103,9 +104,9 @@ final class AlarmViewController: UIViewController {
         //soundButton
         NSLayoutConstraint.activate([
             soundButton.heightAnchor.constraint(equalToConstant: 50),
-            soundButton.widthAnchor.constraint(equalToConstant: 100),
+            soundButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -75),
             soundButton.topAnchor.constraint(equalTo: setButton.bottomAnchor, constant: 50),
-            soundButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            soundButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75)
         ])
     }
     
@@ -114,10 +115,10 @@ final class AlarmViewController: UIViewController {
 extension AlarmViewController{
     @objc func setButtonTapped(){
         alarmManager.getSelectedTimeFromPicker(pickerView: timePicker)
-        DispatchQueue.main.asyncAfter(deadline: .now() + SoundManager.shared.selectedTime , execute: {
-            SoundManager.shared.playAlarmSound()
-            self.stopButton.isHidden = false
-        })
+//        DispatchQueue.main.asyncAfter(deadline: .now() + SoundManager.shared.selectedTime , execute: {
+//            SoundManager.shared.playAlarmSound()
+//            self.stopButton.isHidden = false
+//        })
     }
     @objc func stopButtonTapped (){
         SoundManager.shared.stopAlarmSound()
@@ -128,6 +129,13 @@ extension AlarmViewController{
     }
     
     @objc func soundButtonTapped (){
+        let soundSelectionVC = SoundSelectionVC()
+        soundSelectionVC.setStatusBar()
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = UIColor.systemRed
+        UINavigationBar.appearance().backgroundColor = .systemGray
+        navigationController?.pushViewController(soundSelectionVC, animated: true)
+        print("soundVC is tapped")
         
     }
     

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("İzin Verilmedi, Malesef")
             }
         }
-        
+        UINavigationBar.appearance().tintColor = .darkGray
         return true
     }
     

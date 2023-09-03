@@ -20,7 +20,7 @@ extension UIViewController {
         
        let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground() // to hide Nav Bar Line also
-        navBarAppearance.backgroundColor = appColor
+        navBarAppearance.backgroundColor = .systemBackground
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         

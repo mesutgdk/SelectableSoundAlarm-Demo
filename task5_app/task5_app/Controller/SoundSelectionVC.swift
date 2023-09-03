@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SoundSelectVC: UITabBarController {
+class SoundSelectionVC: UITabBarController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -21,9 +21,9 @@ class SoundSelectVC: UITabBarController {
         let playlistVC = PlaylistVC()
         let songVC = SongsVC()
         
-        soundVC.setTabBarImage(imageName: "list.dash.header.rectangle", title: "Summary")
-        playlistVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Move Money")
-        songVC.setTabBarImage(imageName: "ellipsis.circle", title: "More")
+        soundVC.setTabBarImage(imageName: "speaker.wave.1", title: "Sounds")
+        playlistVC.setTabBarImage(imageName: "list.bullet.clipboard", title: "PlayList")
+        songVC.setTabBarImage(imageName: "music.quarternote.3", title: "Songs")
         
         let soundNC = UINavigationController(rootViewController: soundVC)
         let playlistNC = UINavigationController(rootViewController: playlistVC)
@@ -34,7 +34,8 @@ class SoundSelectVC: UITabBarController {
         
         let tabBarList = [soundNC,playlistNC,songNC]
         
-        viewControllers = tabBarList
+        setViewControllers(tabBarList, animated: true)
+//        viewControllers = tabBarList
     }
     
     private func hideNavigationBarLine (_ navigationBar: UINavigationBar){
@@ -47,13 +48,14 @@ class SoundSelectVC: UITabBarController {
     private func setupBars(){
         
         tabBar.tintColor = appColor
+        tabBar.backgroundColor = .systemBackground
         tabBar.isTranslucent = false
     }
 }
 
 class SoundsVC: UIViewController {
     override func viewDidLoad() {
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemBlue
     }
 }
 
