@@ -30,7 +30,7 @@ extension UIViewController {
         
         let configuration = UIImage.SymbolConfiguration(scale: .large)
         let image = UIImage(systemName: imageName,withConfiguration: configuration)
-        tabBarItem = UITabBarItem(title: title, image: image, tag: 0)
+        tabBarItem = UITabBarItem(title: title, image: image, tag: 2)
         
     }
 }

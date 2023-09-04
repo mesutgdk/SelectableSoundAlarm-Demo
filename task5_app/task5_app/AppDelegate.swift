@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("İzin Verilmedi, Malesef")
             }
         }
-        UINavigationBar.appearance().tintColor = .darkGray
-        return true
+        UINavigationBar.appearance().tintColor = .systemGray
+       return true
     }
     
     // MARK: UISceneSession Lifecycle

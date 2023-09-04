@@ -29,13 +29,16 @@ class SoundSelectionVC: UITabBarController {
         let playlistNC = UINavigationController(rootViewController: playlistVC)
         let songNC = UINavigationController(rootViewController: songVC)
         
-        soundNC.navigationBar.barTintColor = appColor
+        soundNC.navigationBar.barTintColor = .red
         hideNavigationBarLine(soundNC.navigationBar)
         
         let tabBarList = [soundNC,playlistNC,songNC]
         
-        setViewControllers(tabBarList, animated: true)
-//        viewControllers = tabBarList
+//        setViewControllers(tabBarList, animated: true)
+        viewControllers = tabBarList
+        
+        navigationController?.navigationBar.tintColor = .red
+        title = "Select Sound"
     }
     
     private func hideNavigationBarLine (_ navigationBar: UINavigationBar){
@@ -46,9 +49,8 @@ class SoundSelectionVC: UITabBarController {
     }
     
     private func setupBars(){
-        
         tabBar.tintColor = appColor
-        tabBar.backgroundColor = .systemBackground
+        tabBar.backgroundColor = .systemGray3
         tabBar.isTranslucent = false
     }
 }

@@ -125,11 +125,10 @@ extension AlarmViewController{
     }
     
     @objc func soundButtonTapped (){
-        let soundSelectionVC = SoundSelectionVC()
+        let soundSelectionVC = NewSelectionVC()
         soundSelectionVC.setStatusBar()
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().tintColor = UIColor.systemRed
-        UINavigationBar.appearance().backgroundColor = .systemGray
+        navigationController?.title = "213132"
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.pushViewController(soundSelectionVC, animated: true)
         print("soundVC is tapped")
         
