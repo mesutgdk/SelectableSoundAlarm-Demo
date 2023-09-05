@@ -7,6 +7,7 @@
 
 import AVFoundation
 import UIKit
+import MediaPlayer
 
 final class SoundManager {
     static let shared = SoundManager()
@@ -58,6 +59,18 @@ final class SoundManager {
         }
     }
 
+    func getUserPlaylists() {
+        let query = MPMediaQuery.playlists()
+        if let collections = query.collections {
+            for collection in collections {
+                if let playlistName = collection.value(forProperty: MPMediaPlaylistPropertyName) as? String {
+                    // Access the playlist name
+//                    print("Playlist Name: \(playlistName)")
+                    TableModel.playlist.append(playlistName)
+                }
+            }
+        }
+    }
 
 }
 

@@ -16,11 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
        
-        let alarmVC = AlarmViewController ()
-        let alarmNavController = UINavigationController(rootViewController: alarmVC)
+        let alarmVC = MainViewController ()
+        let mainVC = UINavigationController(rootViewController: alarmVC)
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = alarmNavController
+        window.rootViewController = mainVC
         window.makeKeyAndVisible()
         self.window = window
     }

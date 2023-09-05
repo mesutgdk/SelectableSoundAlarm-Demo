@@ -24,18 +24,18 @@ class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.textColor = .systemGray6
+        label.textColor = .systemGray
         label.text = ""
-        label.backgroundColor = TableViewCell.cellColor
+//        label.backgroundColor = TableViewCell.cellColor
         return label
     }()
     let songNumberLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.textColor = .systemGray6
+        label.textColor = .systemGray
         label.text = ""
-        label.backgroundColor = TableViewCell.cellColor
+//        label.backgroundColor = TableViewCell.cellColor
         return label
     }()
     
@@ -58,7 +58,7 @@ class TableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             playlistImageView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 8),
             playlistImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor,constant: 8),
-            playlistImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: 8),
+            playlistImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -8),
             playlistImageView.heightAnchor.constraint(equalTo: playlistImageView.widthAnchor)
         ])
         

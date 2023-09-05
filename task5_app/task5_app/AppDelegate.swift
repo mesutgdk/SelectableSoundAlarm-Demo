@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 let appColor : UIColor = .systemTeal
 
@@ -18,11 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (approved, error) in
             if approved {
-                print("İzin Alındı Hadi İyisin")
+                print("PlayAlarm&Sound İzin Alındı Hadi İyisin")
             } else {
-                print("İzin Verilmedi, Malesef")
+                print("PlayAlarm&Sound ve ses'e İzin Verilmedi, Malesef")
             }
         }
+        MPMediaLibrary.requestAuthorization { status in
+            if status == .authorized {
+                print("MediaLibraryUsage - İzin Alındı Hadi İyisin")
+                // User granted access
+                // You can now use MusicKit to search the Apple Music catalog or access user playlists
+            } else {
+                print("MediaLibraryUsage - İzin Verilmedi, Malesef")
+                // Handle denied access
+            }
+        }
+        
         UINavigationBar.appearance().tintColor = .systemGray
        return true
     }
