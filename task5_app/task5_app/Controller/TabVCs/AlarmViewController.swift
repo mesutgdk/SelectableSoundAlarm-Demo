@@ -46,14 +46,14 @@ final class AlarmViewController: UIViewController {
     }()
     
     private let soundButton: UIButton = {
-        let button = UIButton(type: .contactAdd)
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = .plain()
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 25
         button.backgroundColor = .systemFill
         button.tintColor = .systemIndigo
-        button.setTitle("Sound", for: [])
+        button.setTitle("Set Sound", for: [])
         button.addTarget(self, action: #selector(soundButtonTapped), for: .primaryActionTriggered)
         
         return button
