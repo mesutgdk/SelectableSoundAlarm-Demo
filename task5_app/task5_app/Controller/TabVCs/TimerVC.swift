@@ -9,10 +9,21 @@ import UIKit
 
 final class TimerVC: UIViewController {
     
-    private let bacgroundImageView: UIImageView = {
+    private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private let timeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.text = "TIMER"
+        label.font = UIFont.systemFont(ofSize: 25)
+        label.tintColor = .systemGray4
+        return label
     }()
     override func viewDidLoad() {
         setup()
@@ -20,15 +31,22 @@ final class TimerVC: UIViewController {
         
     }
     private func setup(){
-        bacgroundImageView.image = UIImage(named: "timer")
-        view.addSubview(bacgroundImageView)
+        backgroundImageView.image = UIImage(named: "timer")
+        view.backgroundColor = .systemBackground
+        view.addSubviews(backgroundImageView,timeLabel)
     }
     private func layout(){
+        //backgroundImageView
             NSLayoutConstraint.activate([
-                bacgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-                bacgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: bacgroundImageView.trailingAnchor),
-                bacgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                backgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                backgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                backgroundImageView.heightAnchor.constraint(equalToConstant: view.frame.height/2)
             ])
+        //timeLabel
+        NSLayoutConstraint.activate([
+            timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            timeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 50),
+            timeLabel.widthAnchor.constraint(equalToConstant: view.frame.width/2)
+        ])
     }
 }
